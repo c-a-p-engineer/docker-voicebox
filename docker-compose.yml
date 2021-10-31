@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  voicebox:
+    container_name: voicebox
+    image: hiroshiba/voicevox_engine:${VOICEBOX_VERSION}
+    volumes:
+      - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
+    ports:
+      - "50021:50021"
+    entrypoint:
+      - sh
+    command :
+      - -c
+      - |
+        apt update && apt install curl
+    tty: true
