@@ -7,14 +7,21 @@
 `.env.example` をコピー `.env` を作成。
 各種設定値を修正。
 
-Docker起動
+## Docker起動
 ```
 docker-compose up -d --build
 ```
 
-コンテナに入る
+# Usage
+
+## コンテナに入る
 ```
 docker exec -it voicebox sh
+```
+
+## テキストファイルを変換
+```
+docker exec -it voicevox /bin/bash -c "cd /work && sh convert.sh scrum.txt"
 ```
 
 # Note
