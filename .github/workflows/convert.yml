@@ -1,0 +1,37 @@
+name: Convert
+
+on:
+  push:
+    branches:
+      - convert/*
+
+jobs:
+  deploy:
+    # Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0 
+
+      # Docker Set Up
+      - name: Docker Set Up
+        env:
+          VOICEVOX_VERSION: cpu-ubuntu20.04-latest
+        run: |
+          docker-compose up -d --build
+          docker-compose logs
+
+      # Convert Exec
+      - name: Convert Exec
+        run: |
+          docker-compose exec -T voicevox sh -c "cd /work && sh target.sh"
+
+      # Commit
+      - name: Convert Complete Commit
+        uses: stefanzweifel/git-auto-commit-action@v4.2.0
+        with:
+          commit_message: Convert Complete Commit
