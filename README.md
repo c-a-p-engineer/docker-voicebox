@@ -23,6 +23,23 @@ docker exec -it voicebox sh
 ```
 docker exec -it voicevox /bin/bash -c "cd /work && sh convert.sh scrum.txt"
 ```
+## 複数ファイルを一括変換
+1. `work/target/` に`hoge.txt`を入れる ※`.txt` ファイルであれば自動的に変換してくれます
+2. `docker exec -it voicevox /bin/bash -c "cd /work && sh target.sh"` を実行
+5. 完了したら `work/complete` に `hoge.txt` が移動し、 `hoge.txt.wav` ファイルコミットされます
+
+## CIで自動変換
+
+1. ブランチを `convert/hoge` で作成 ※hogeは好きな名前で
+2. `work/target/` に`hoge.txt`を入れる ※`.txt` ファイルであれば自動的に変換してくれます。
+3. コミット
+4. CI が走る
+5. 完了したら `work/complete` に `hoge.txt` が移動し、 `hoge.txt.wav` ファイルコミットされます
+
+### 注意点
+ファイル容量が100Mを超えた場合 Github にアップロード出来ません。
+自動的にアップしたい場合は `Git Large File Storage` を設定してください。
+もしくは `.github/workflows/convert.yml` を回収して完了時にSlackにファイルをアップするなど改良を行ってください。
 
 # Note
 * [Hiroshiba/voicevox_engine - Github](https://github.com/Hiroshiba/voicevox_engine)
