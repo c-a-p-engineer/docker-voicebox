@@ -44,6 +44,11 @@ docker exec -it voicevox /bin/bash -c "cd /work && sh convert.sh scrum.txt"
 # Note
 * [Hiroshiba/voicevox_engine - Github](https://github.com/Hiroshiba/voicevox_engine)
 
+# Tool
+* [wav → mp3 ファイル変換](https://online-audio-converter.com/ja/)
+* [mp3 → mp4 変換](https://www.oneimagevideo.com/)
+
+
 # Author
 * [こぴぺたん](https://twitter.com/c_a_p_engineer)
 
