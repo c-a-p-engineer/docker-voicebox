@@ -39,7 +39,7 @@ docker exec -it voicevox /bin/bash -c "cd /work && sh convert.sh scrum.txt"
 ### 注意点
 ファイル容量が100Mを超えた場合 Github にアップロード出来ません。
 自動的にアップしたい場合は `Git Large File Storage` を設定してください。
-もしくは `.github/workflows/convert.yml` を回収して完了時にSlackにファイルをアップするなど改良を行ってください。
+もしくは `.github/workflows/convert.yml` を改修して完了時にSlackにファイルをアップするなど改良を行ってください。
 
 # Note
 * [Hiroshiba/voicevox_engine - Github](https://github.com/Hiroshiba/voicevox_engine)
