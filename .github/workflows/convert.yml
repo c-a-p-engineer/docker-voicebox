@@ -30,8 +30,13 @@ jobs:
         run: |
           docker-compose exec -T voicevox sh -c "cd /work && sh target.sh"
 
-      # Commit
-      - name: Convert Complete Commit
-        uses: stefanzweifel/git-auto-commit-action@v4.2.0
+      # Upload Artifact
+      - name: Convert Complete Upload
+        uses: actions/upload-artifact@v2.2.0
         with:
-          commit_message: Convert Complete Commit
+          # 保存ファイル名（XXXX.zip）
+          name: convert
+          # 保存するファイル
+          path: work/complete
+          # 保存期間（日）
+          retention-days: 3
