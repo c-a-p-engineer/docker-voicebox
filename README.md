@@ -21,7 +21,7 @@ docker exec -it voicebox sh
 
 ## テキストファイルを変換
 ```
-docker exec -it voicevox /bin/bash -c "cd /work && sh convert.sh scrum.txt"
+docker exec -it voicevox /bin/bash -c "cd /work && sh convert.sh sample.txt"
 ```
 ## 複数ファイルを一括変換
 1. `work/target/` に`hoge.txt`を入れる ※`.txt` ファイルであれば自動的に変換してくれます
